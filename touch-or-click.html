@@ -1,0 +1,99 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../polymer/polymer.html">
+<script src="modernizr.detectTouch.js"></script>
+
+<!--
+Displays "tap" or "click" depending on whether there are touch events.
+
+Example:
+
+    <touch-or-click></touch-or-click>
+
+Example:
+
+    <touch-or-click touch-text="tappity-do" click-text="clickarooney" cap="true"></touch-or-click>
+
+@demo demo/index.html
+@hero hero.svg
+-->
+
+<dom-module id="touch-or-click">
+  <template>
+    <template is="dom-if" if="[[isTouch]]">
+      [[touchText]]
+    </template>
+    <template is="dom-if" if="[[!isTouch]]">
+      [[clickText]]
+    </template>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'touch-or-click',
+
+      properties: {
+        /**
+         * The touch property
+         * @type {Boolean}
+         */
+        isTouch: {
+          reflect: true,
+          type: Boolean
+        },
+
+        /**
+         * Whether to capitalize the label.
+         * @type {Boolean}
+         * @default false
+         */
+        cap: {
+          type: Boolean,
+          value: function() {
+            return false;
+          }
+        },
+
+        /**
+         * The text for touch devices
+         * @type {String}
+         */
+        touchText: {
+          type: String,
+          value: function() {
+            return 'tap'
+          }
+        },
+
+        /**
+         * The text for clicking devices
+         * @type {String}
+         */
+        clickText: {
+          type: String,
+          value: function() {
+            return 'click';
+          }
+        }
+      },
+
+
+      ready: function() {
+        this.isTouch = Modernizr.touchevents;
+        if (this.cap) {
+          this.touchText = this.touchText[0].toUpperCase() + this.touchText.slice(1);
+          this.clickText = this.clickText[0].toUpperCase() + this.clickText.slice(1);
+        }
+      }
+    });
+  </script>
+</dom-module>
