@@ -1,7 +1,32 @@
-# touch-or-select
+# touch-or-click
+## 2016 [Ændrew Rininsland](http://github.com/aendrew/) ([@aendrew](http://twitter.com/aendrew))
 
-An element providing a starting point for your own reusable Polymer elements.
+A [Polymer](http://www.polymer.io) component that renders "tap" if the device has touch capabilities,
+or "click" if otherwise. Uses Modernizr.touchevents for detection;
+usual [caveats](https://modernizr.com/download?touchevents-setclasses) apply.
 
+### [documentation](http://aendrew.com/touch-or-click/components/touch-or-click/)
+### [demo](http://aendrew.com/touch-or-click/components/touch-or-click/demo/)
+
+## Usage
+
+Import touch-or-click.html and Polymer (a vulcanized version with Polymer embedded is attached) and
+then use as follows:
+
+`<touch-or-click></touch-or-click>`
+
+It will render either "tap" or "click" based on the which device is consuming the element.
+
+## Attributes
+
+You can configure the element via the following attributes:
+
+* touch-text (string; default: "tap")
+  * The text to render for touch devices
+* click-text (string; default: "click")
+  * The text to render for click devices
+* cap (boolean; default: false)
+  * Whether to capitalise the first letter.
 
 ## Dependencies
 
@@ -14,48 +39,6 @@ Then, go ahead and download the element's dependencies:
 
     bower install
 
+## TODO:
 
-## Playing With Your Element
-
-If you wish to work on your element in isolation, we recommend that you use
-[Polyserve](https://github.com/PolymerLabs/polyserve) to keep your element's
-bower dependencies in line. You can install it via:
-
-    npm install -g polyserve
-
-And you can run it via:
-
-    polyserve
-
-Once running, you can preview your element at
-`http://localhost:8080/components/touch-or-select/`, where `touch-or-select` is the name of the directory containing it.
-
-
-## Testing Your Element
-
-Simply navigate to the `/test` directory of your element to run its tests. If
-you are using Polyserve: `http://localhost:8080/components/touch-or-select/test/`
-
-### web-component-tester
-
-The tests are compatible with [web-component-tester](https://github.com/Polymer/web-component-tester).
-Install it via:
-
-    npm install -g web-component-tester
-
-Then, you can run your tests on _all_ of your local browsers via:
-
-    wct
-
-#### WCT Tips
-
-`wct -l chrome` will only run tests in chrome.
-
-`wct -p` will keep the browsers alive after test runs (refresh to re-run).
-
-`wct test/some-file.html` will test only the files you specify.
-
-
-## Yeoman support
-
-If you'd like to use Yeoman to scaffold your element that's possible. The official [`generator-polymer`](https://github.com/yeoman/generator-polymer) generator has a [`seed`](https://github.com/yeoman/generator-polymer#seed) subgenerator.
+* Tests!
