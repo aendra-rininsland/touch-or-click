@@ -1,0 +1,28 @@
+{
+  "name": "touch-or-click",
+  "version": "1.0.0",
+  "authors": [
+    "Ændrew Rininsland <aendrew@aendrew.com>"
+  ],
+  "description": "An element that says either 'click' or 'tap' based on device.",
+  "keywords": [
+    "web-component",
+    "polymer",
+    "seed",
+    "touch"
+  ],
+  "main": "touch-or-click.html",
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "homepage": "https://github.com/aendrew/touch-or-click/",
+  "ignore": [
+    "/.*",
+    "/test/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.2.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "^4.0.0"
+  }
+}
